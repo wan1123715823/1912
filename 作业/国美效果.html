@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 200px;
+            height: 300px;
+            background-color: deeppink;
+            float: left;
+        }
+
+        li {
+            width: 200px;
+            height: 100px;
+            float: left;
+        }
+
+        .box {
+            width: 600px;
+            height: 300px;
+            background-color: aqua;
+            float: left;
+            text-align: center;
+        }
+
+        .no {
+            display: none;
+            padding-top: 15%;
+        }
+
+        .bgc {
+            background-color: aqua;
+        }
+
+        .bo {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxx">
+        <ul>
+            <li>天堂</li>
+            <li>人间</li>
+            <li>地狱</li>
+        </ul>
+        <div class="box" style="display: none;">
+            <div class="no">
+                <p>六翼天使</p>
+                <p>六翼天使</p>
+                <p>六翼天使</p>
+                <p>六翼天使</p>
+                <p>六翼天使</p>
+                <p>六翼天使</p>
+            </div>
+            <div class="no">
+                <p>普通凡人</p>
+                <p>普通凡人</p>
+                <p>普通凡人</p>
+                <p>普通凡人</p>
+                <p>普通凡人</p>
+                <p>普通凡人</p>
+            </div>
+            <div class="no">
+                <p>撒旦恶魔</p>
+                <p>撒旦恶魔</p>
+                <p>撒旦恶魔</p>
+                <p>撒旦恶魔</p>
+                <p>撒旦恶魔</p>
+                <p>撒旦恶魔</p>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+        $("li").mouseenter(function () {
+            // 移入加入左侧CSS颜色
+            $(this).addClass("bgc").siblings().removeClass("bgc");
+            // 纪录下标
+            let index = $(this).index();
+            // 移入显示右侧
+            $(".box").attr("style", "display:block");
+            $(".box").children().eq(index).addClass("bo").siblings().removeClass("bo");
+            // 移出删除CSS
+            $(".boxx").mouseleave(function () {
+                $(".box").attr("style", "display: none");
+                $("li").removeClass("bgc");
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
